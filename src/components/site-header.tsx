@@ -18,7 +18,7 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[13px] tracking-wide text-secondary transition-colors hover:text-foreground"
+              className="link-underline text-[13px] tracking-wide text-secondary transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -26,7 +26,7 @@ export function SiteHeader() {
         </nav>
         <Link
           href="/discover"
-          className="bg-primary px-4 py-2 text-[13px] font-medium tracking-wide text-background transition-colors hover:bg-primary-hover"
+          className="btn-primary rounded-sm bg-primary px-4 py-2 text-[13px] font-medium tracking-wide text-background transition-colors hover:bg-primary-hover"
         >
           Find APIs
         </Link>

@@ -59,8 +59,158 @@ button {
   border-radius: 0;
 }
 
+/* ── Serif accent ── */
 .serif-accent {
   font-family: var(--font-instrument), ui-serif, Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+.serif-heading {
+  font-family: var(--font-instrument), ui-serif, Georgia, serif;
+  font-weight: 600;
+}
+
+/* ── Hero reveal keyframes ── */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal > * {
+  opacity: 0;
+  animation: hero-fade-up 650ms ease-out forwards;
+}
+
+.hero-reveal > *:nth-child(1) { animation-delay: 0ms; }
+.hero-reveal > *:nth-child(2) { animation-delay: 120ms; }
+.hero-reveal > *:nth-child(3) { animation-delay: 240ms; }
+.hero-reveal > *:nth-child(4) { animation-delay: 360ms; }
+.hero-reveal > *:nth-child(5) { animation-delay: 480ms; }
+
+/* ── Section reveal (scroll-triggered) ── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Scroll indicator pulse ── */
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.35; transform: translateY(0); }
+  50% { opacity: 0.7; transform: translateY(4px); }
+}
+
+.scroll-indicator {
+  animation: scroll-pulse 2.4s ease-in-out infinite;
+}
+
+/* ── Button hover ── */
+.btn-primary {
+  transition: background-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(100, 30, 45, 0.15);
+}
+
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+/* ── Arrow hover shift ── */
+.arrow-hover {
+  display: inline-block;
+  transition: transform 250ms ease;
+}
+
+.group:hover .arrow-hover,
+.arrow-hover-self:hover .arrow-hover {
+  transform: translateX(4px);
+}
+
+/* ── Link underline expansion ── */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 300ms ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Card hover lift ── */
+.card-lift {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(23, 23, 23, 0.07);
+}
+
+/* ── Chat FAB hover ── */
+.fab-hover {
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.fab-hover:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(100, 30, 45, 0.2);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal > * {
+    opacity: 1;
+    animation: none;
+  }
+
+  .section-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-indicator {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .btn-primary:hover {
+    transform: none;
+  }
+
+  .card-lift:hover {
+    transform: none;
+  }
+
+  .fab-hover:hover {
+    transform: none;
+  }
+
+  .arrow-hover {
+    transition: none;
+  }
 }

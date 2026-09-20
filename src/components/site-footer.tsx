@@ -4,7 +4,7 @@ import { Logo } from "./logo";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 md:flex-row md:items-end md:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20 md:flex-row md:items-end md:justify-between">
         <div className="space-y-4">
           <Logo />
           <p className="max-w-xs text-sm leading-relaxed text-secondary">
@@ -13,13 +13,13 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex gap-10 text-[13px] text-secondary">
-          <Link href="/#problem" className="hover:text-foreground">
+          <Link href="/#problem" className="link-underline hover:text-foreground">
             Problem
           </Link>
-          <Link href="/#features" className="hover:text-foreground">
+          <Link href="/#features" className="link-underline hover:text-foreground">
             Features
           </Link>
-          <Link href="/discover" className="hover:text-foreground">
+          <Link href="/discover" className="link-underline hover:text-foreground">
             Discover
           </Link>
         </div>

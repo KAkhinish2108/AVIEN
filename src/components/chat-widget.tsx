@@ -62,7 +62,7 @@ export function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {open && (
-        <section className="flex h-[min(520px,70vh)] w-[min(380px,calc(100vw-3rem))] flex-col border border-border bg-surface shadow-[0_8px_30px_rgba(23,23,23,0.04)]">
+        <section className="flex h-[min(520px,70vh)] w-[min(380px,calc(100vw-3rem))] flex-col rounded-lg border border-border bg-surface shadow-[0_8px_30px_rgba(23,23,23,0.08)]">
           <header className="flex items-center justify-between border-b border-border px-4 py-3">
             <div>
               <p className="text-[11px] tracking-[0.22em] text-champagne">
@@ -73,7 +73,7 @@ export function ChatWidget() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="text-secondary hover:text-foreground"
+              className="text-secondary transition-colors hover:text-foreground"
               aria-label="Close concierge"
             >
               ✕
@@ -89,7 +89,7 @@ export function ChatWidget() {
                   {message.role === "user" ? "YOU" : "AVIEN"}
                 </p>
                 <p
-                  className={`whitespace-pre-wrap text-[13px] leading-relaxed ${
+                  className={`whitespace-pre-wrap rounded-sm text-[13px] leading-relaxed ${
                     message.role === "user"
                       ? "bg-surface-muted px-3 py-2 text-foreground"
                       : "text-secondary"
@@ -113,12 +113,12 @@ export function ChatWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="I need UPI payments…"
-                className="min-w-0 flex-1 bg-background px-3 py-2 text-sm outline-none placeholder:text-muted"
+                className="min-w-0 flex-1 rounded-sm bg-background px-3 py-2 text-sm outline-none placeholder:text-muted"
               />
               <button
                 type="submit"
                 disabled={pending}
-                className="bg-primary px-3 py-2 text-[12px] font-medium tracking-wide text-background hover:bg-primary-hover disabled:opacity-50"
+                className="btn-primary rounded-sm bg-primary px-3 py-2 text-[12px] font-medium tracking-wide text-background hover:bg-primary-hover disabled:opacity-50"
               >
                 Send
               </button>
@@ -129,7 +129,7 @@ export function ChatWidget() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="h-12 w-12 bg-primary text-background transition-colors hover:bg-primary-hover"
+        className="fab-hover h-12 w-12 rounded-full bg-primary text-background shadow-lg transition-colors hover:bg-primary-hover"
         aria-label={open ? "Close concierge" : "Open concierge"}
       >
         {open ? "✕" : "◆"}

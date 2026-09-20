@@ -26,7 +26,7 @@ export function DiscoverExperience() {
 
   return (
     <div className="mt-12">
-      <form onSubmit={onSubmit} className="border border-border bg-surface p-2 shadow-[0_8px_30px_rgba(23,23,23,0.04)] md:p-3">
+      <form onSubmit={onSubmit} className="rounded-sm border border-border bg-surface p-2 shadow-[0_8px_30px_rgba(23,23,23,0.04)] md:p-3">
         <div className="flex items-center gap-2">
           <input
             value={query}
@@ -36,7 +36,7 @@ export function DiscoverExperience() {
           />
           <button
             type="submit"
-            className="bg-primary px-5 py-3 text-[13px] font-medium tracking-wide text-background hover:bg-primary-hover"
+            className="btn-primary rounded-sm bg-primary px-5 py-3 text-[13px] font-medium tracking-wide text-background hover:bg-primary-hover"
           >
             Find APIs
           </button>
@@ -51,7 +51,7 @@ export function DiscoverExperience() {
               key={item}
               type="button"
               onClick={() => setCategory(item)}
-              className={`border px-3 py-1.5 text-[12px] tracking-wide transition-colors ${
+              className={`rounded-sm border px-3 py-1.5 text-[12px] tracking-wide transition-colors ${
                 active
                   ? "border-primary bg-primary text-background"
                   : "border-border bg-surface text-secondary hover:text-foreground"
@@ -71,7 +71,7 @@ export function DiscoverExperience() {
         {results.map((api) => (
           <li
             key={api.id}
-            className="border border-border bg-surface p-6 shadow-[0_8px_30px_rgba(23,23,23,0.04)] md:p-7"
+            className="card-lift rounded-sm border border-border bg-surface p-6 shadow-[0_8px_30px_rgba(23,23,23,0.04)] md:p-7"
           >
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
@@ -90,9 +90,9 @@ export function DiscoverExperience() {
                 href={api.docs}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[13px] text-primary hover:text-primary-hover"
+                className="arrow-hover-self group text-[13px] text-primary hover:text-primary-hover"
               >
-                Docs →
+                Docs <span className="arrow-hover inline-block">→</span>
               </a>
             </div>
             <dl className="mt-6 grid gap-4 text-[12px] sm:grid-cols-3">
@@ -114,10 +114,10 @@ export function DiscoverExperience() {
       </ul>
 
       {results.length === 0 && (
-        <div className="mt-6 border border-border bg-surface px-6 py-16 text-center">
+        <div className="mt-6 rounded-sm border border-border bg-surface px-6 py-16 text-center">
           <p className="text-foreground">Nothing in the index matches that sentence.</p>
           <p className="mt-2 text-sm text-secondary">
-            Try the job instead of the brand — “maps with routing”, “transactional email”, “UPI”.
+            Try the job instead of the brand — &ldquo;maps with routing&rdquo;, &ldquo;transactional email&rdquo;, &ldquo;UPI&rdquo;.
           </p>
         </div>
       )}

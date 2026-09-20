@@ -37,9 +37,10 @@ export function HeroSearch({ variant = "light" }: { variant?: "light" | "dark" }
         />
         <button
           type="submit"
-          className="mb-3 shrink-0 self-end bg-primary px-5 py-2.5 text-[13px] font-medium tracking-wide text-background hover:bg-primary-hover sm:self-center"
+          className="btn-primary group mb-3 shrink-0 self-end rounded-sm bg-primary px-5 py-2.5 text-[13px] font-medium tracking-wide text-background hover:bg-primary-hover sm:self-center"
         >
-          Find APIs →
+          Find APIs{" "}
+          <span className="arrow-hover ml-0.5 inline-block">→</span>
         </button>
       </div>
     </form>

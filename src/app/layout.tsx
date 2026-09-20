@@ -1,4 +1,4 @@
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Geist, Cormorant_Garamond } from "next/font/google";
 import type { Metadata } from "next";
 import { ChatWidget } from "@/components/chat-widget";
 import "./globals.css";
@@ -8,9 +8,9 @@ const geist = Geist({
   variable: "--font-geist",
 });
 
-const instrument = Instrument_Serif({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600"],
   style: ["normal", "italic"],
   variable: "--font-instrument",
 });
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${instrument.variable} antialiased`}>
+      <body className={`${geist.variable} ${cormorant.variable} antialiased`}>
         {children}
         <ChatWidget />
       </body>
